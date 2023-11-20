@@ -156,7 +156,7 @@ while true; do
                         sleep 2
 
                 else
-                        echo "Unknow option \"${option}\". Try again.."
+                        echo "Unknow option ${option}. Try again."
                 fi
         fi
         sleep 2

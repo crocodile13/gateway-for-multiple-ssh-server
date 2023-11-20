@@ -53,7 +53,7 @@ else
         fi
 fi
 
-echo -e "\n\n\tHello $userTag !\n\n\tPlease, wait 2s."
+echo -e "\n\n\tHello $userTag, you are logged !\n\n\tPlease, wait 2s."
 sleep 2
 
 if [ ! -f "$logRep/$logFile" ]; then

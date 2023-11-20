@@ -78,7 +78,6 @@ while IFS= read -r line; do
                 break
         fi
 done < "$accessFile"
-echo "Resultat : ${accessListUser[*]}"
 
 
 #Recuperer les lignes du fichier servers.conf specifiees dans access.conf. A noter que il ne filtre pas les serveurs qui repondent ou pas.
@@ -101,16 +100,13 @@ while IFS= read -r line; do
         match=$?
         if [[ $match -eq 1 || $userTag == "admin" ]];then
                 servers+=("$line")
-                echo "TAMERE"
         fi
 
 done < "$serversFile"
 
 sshTr()
 {
-        #read -p "Username: " username
         commande="ssh -t -p $2 $3@$1"
-        #commande="ssh -t -p $2 $3@$1 'su - $username'"
         script -afq -c "$commande" "$logRep/$logFile"
         sleep 2
 }

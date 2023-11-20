@@ -11,7 +11,7 @@ accessFile="access.conf"
 cd $(dirname $0)
 
 if [ ! -d "$logRep" ]; then
-        umask 067 && mkdir -p $logRep && chown root:gateway $logRep
+        umask 067 && mkdir -p $logRep
 fi
 
 matchAccess()

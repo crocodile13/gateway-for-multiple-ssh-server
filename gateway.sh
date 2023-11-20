@@ -11,7 +11,7 @@ accessFile="access.conf"
 cd $(dirname $0)
 
 if [ ! -d "$logRep" ]; then
-        mkdir -p $logRep
+        umask 067 && mkdir -p $logRep && chown root:gateway $logRep
 fi
 
 matchAccess()
@@ -56,7 +56,9 @@ fi
 echo -e "\n\n\tHello $userTag !\n\n\tPlease, wait 2s."
 sleep 2
 
-umask 077 && touch $logRep/$logFile && chmod 200 $logRep/$logFile
+if [ ! -f "$logRep/$logFile" ]; then
+        umask 577 && touch $logRep/$logFile 
+fi
 
 accessListUser=()
 if [ ! -f "$accessFile" ]; then

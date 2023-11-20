@@ -142,14 +142,12 @@ while true; do
         banner
         echo ""
         read -p "Make your choice: " option
-        if [[ ${option} =~ ^[0-9]+$ ]] || [ "$chaine" = "a" ]; then
-                echo "Your choice contains non-alphanumeric characters. Please retry."
-        else
+        if [[ ${option} =~ ^[0-9]+$ ]] || [ "${option}" = "a" ]; then
                 echo ""
                 if [[ "${option}" -ge 1 && "${option}" -le ${#servers[@]} ]]; then
                         read -p "Username: " username
                         if [[ ${username} =~ [^[:alnum:]] ]]; then
-                                echo "Your username contains non-alphanumeric characters. Please retry"
+                                echo "Invalid option."
                         else
                                 sshTr $(echo ${servers[option-1]} | cut -d ":" -f 1) $(echo ${servers[option-1]} | cut -d ":" -f 2) "${username}"
                         fi
@@ -158,8 +156,10 @@ while true; do
                         sleep 2
 
                 else
-                        echo "Unknow option ${option}. Try again."
+                        echo "Unknow server ${option}. Try again.."
                 fi
+        else
+                echo "Invalid option"
         fi
-        sleep 2
+        sleep 0.5 # pour prevenir des attaques par force brute
 done

@@ -17,9 +17,7 @@ This Bash script is designed to simplify access to multiple SSH servers on the s
 
     SyslogFacility AUTH
     LogLevel VERBOSE
-
     AllowUsers gateway
-
     Match User gateway
     ForceCommand /home/gateway/gateway.sh.
 

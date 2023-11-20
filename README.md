@@ -1,4 +1,4 @@
-# gateway-for-multiple-ssh-server
+# multiple-ssh-gateway-keylog
 This Bash script is designed to simplify access to multiple SSH servers on the same LAN by exposing only one. It logs all keyboard input entered by users on the destination servers for intrusion monitoring purposes. It allows for managing lists of servers accessible by users (filtered by SSH public key). The script checks authentication with public keys, and upon successful authentication, redirects the user to another server requiring only a password.
 
 1) Create a dedicated VM, which should be the only SSH server exposed on the WAN. Secure it through public key authentication.
